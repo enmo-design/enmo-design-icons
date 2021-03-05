@@ -1,0 +1,22 @@
+// This icon file is generated automatically.
+// DON NOT EDIT IT MANUALLY
+
+import Vue from 'vue';
+import { IconDefinition } from '../types';
+import EnmodIcon from '../components/EnmodIcon';
+
+const <%= identifier %>Svg: IconDefinition = <%= content %>;
+
+const <%= identifier %> = Vue.extend({
+  functional: true,
+  render (h, context) {
+    return h(EnmodIcon, {
+      ...context.data,
+      props: {
+        icon: <%= identifier %>Svg
+      }
+    })
+  }
+});
+
+export default <%= identifier %>;
