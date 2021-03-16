@@ -2,23 +2,33 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-    <account-book-filled width="60" height="60" original></account-book-filled>
-    <account-book-filled width="30" height="30"></account-book-filled>
-    <account-book-outlined width="60" height="60" original></account-book-outlined>
+    <icon-add-outlined width="60" height="60" :rotate="30" spin></icon-add-outlined>
+    <icon-approval-outlined width="30" height="30"></icon-approval-outlined>
+    <icon-alarm-outlined width="60" height="60"></icon-alarm-outlined>
+    <icon :component="iconData" @click="clickHandler" height="60" width="60" spin></icon>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
-import { AccountBookFilled, AccountBookOutlined } from '../../../src'
+import Icon, { IconAddOutlined, IconAlarmOutlined, IconApprovalOutlined } from '../../../src'
+import SvgData from '../../../svg/filled/icon-compression.svg'
 
 @Component({
   components: {
     HelloWorld,
-    AccountBookFilled,
-    AccountBookOutlined
+    IconAddOutlined,
+    IconAlarmOutlined,
+    IconApprovalOutlined,
+    Icon
   }
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  iconData = SvgData
+
+  clickHandler () {
+    console.error(111)
+  }
+}
 </script>

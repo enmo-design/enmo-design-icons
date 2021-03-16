@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-start-fill</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="zCloud-icon更新对照表" transform="translate(-1878.000000, -1605.000000)">
+            <g id="icon-start-fill" transform="translate(1878.000000, 1605.000000)">
+                <rect x="0" y="0" width="16" height="16"></rect>
+                <path d="M7.99995714,0 C3.58173646,0 0,3.58173646 0,7.99995714 C0,12.4182635 3.58173646,16 7.99995714,16 C12.4182635,16 16,12.4182635 16,7.99995714 C16,3.58173646 12.4182635,0 7.99995714,0 Z M11.9141787,8.45715633 L6.51418837,11.5999507 C6.14278903,11.8000075 5.68558985,11.5428651 5.68558985,11.1142944 L5.68558985,4.88570556 C5.68558985,4.4571349 6.14270332,4.1999925 6.51418837,4.39996357 L11.9141787,7.51421515 C12.2856638,7.71427194 12.2856638,8.25709954 11.9141787,8.45715633 Z" fill="#000000" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>

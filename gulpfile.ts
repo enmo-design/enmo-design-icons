@@ -1,10 +1,7 @@
 import { series, parallel } from 'gulp';
 import { clean, generateIcons, generateEntry } from './tasks';
 import { generalConfig } from './plugins/svgo/presets';
-import {
-  assignAttrsAtTag,
-  adjustViewBox
-} from './plugins/svg2Definition/transforms';
+import { assignAttrsAtTag } from './plugins/svg2Definition/transforms';
 import { readFileSync } from 'fs';
 import { resolve } from 'path';
 import { getIdentifier } from './utils';
@@ -16,18 +13,17 @@ const iconTemplate = readFileSync(
 
 export default series(
   // 1. clean
-  clean(['src/asn', 'es', 'lib']),
+  clean(['src/svg-components', 'es', 'lib']),
 
   parallel(
     // 2.1 generate abstract node with the theme "filled"
     generateIcons({
       theme: 'filled',
       from: ['svg/filled/*.svg'],
-      toDir: 'src/asn',
+      toDir: 'src/svg-components',
       svgoConfig: generalConfig,
       extraNodeTransformFactories: [
-        assignAttrsAtTag('svg', { focusable: 'false' }),
-        adjustViewBox
+        assignAttrsAtTag('svg', { focusable: 'false' })
       ],
       stringify: JSON.stringify,
       template: iconTemplate,
@@ -42,11 +38,10 @@ export default series(
     generateIcons({
       theme: 'outlined',
       from: ['svg/outlined/*.svg'],
-      toDir: 'src/asn',
+      toDir: 'src/svg-components',
       svgoConfig: generalConfig,
       extraNodeTransformFactories: [
-        assignAttrsAtTag('svg', { focusable: 'false' }),
-        adjustViewBox
+        assignAttrsAtTag('svg', { focusable: 'false' })
       ],
       stringify: JSON.stringify,
       template: iconTemplate,
@@ -61,13 +56,13 @@ export default series(
     // 3.1 generate entry file: src/index.ts
     generateEntry({
       entryName: 'index.ts',
-      from: ['src/asn/*.ts'],
+      from: ['src/svg-components/*.ts'],
       toDir: 'src',
-      banner: '// This index.ts file is generated automatically.\n',
+      banner: `// This index.ts file is generated automatically.\nexport { default as Icon } from './components/EnmodIcon';\n`,
       template: `export { default as <%= identifier %> } from '<%= path %>';`,
       mapToInterpolate: ({ name: identifier }) => ({
         identifier,
-        path: `./asn/${identifier}`
+        path: `./svg-components/${identifier}`
       })
     })
   )

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-left</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="zCloud-icon更新对照表" transform="translate(-2612.000000, -355.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="icon-left" transform="translate(2612.000000, 355.000000)">
+                <rect id="矩形" opacity="0" x="0" y="0" width="16" height="16"></rect>
+                <path d="M12.084,14.632 L5.0816,7.84 L12.0736,1.336 C12.3800076,1.05102107 12.3973789,0.571607579 12.1124,0.2652 C11.8274211,-0.0412075792 11.3480076,-0.0585789309 11.0416,0.2264 L3.4656,7.2744 C3.31350544,7.41577561 3.22610734,7.61338359 3.22379359,7.82102431 C3.2215704,8.02866504 3.30463043,8.22813527 3.4536,8.3728 L11.0296,15.7192 C11.3333765,15.9868461 11.7938169,15.9686891 12.0755742,15.6779532 C12.3573315,15.3872173 12.3610406,14.926434 12.084,14.6312" id="路径"></path>
+            </g>
+        </g>
+    </g>
+</svg>

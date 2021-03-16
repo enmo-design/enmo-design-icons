@@ -33,6 +33,7 @@
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",
+    "vue-svg-loader": "^0.17.0-beta.2",
     "vue-template-compiler": "^2.6.11"
   }
 }

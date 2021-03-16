@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-mail-fill</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="zCloud-icon更新对照表" transform="translate(-1878.000000, -1105.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="icon-mail-fill" transform="translate(1878.000000, 1105.000000)">
+                <rect id="矩形" opacity="0" x="0" y="0" width="16" height="16"></rect>
+                <path d="M8,9.6 C7.8733387,9.60002194 7.74929423,9.56394637 7.6424,9.496 L0,4.632 L0,13.6048 C0.0024,14.34 0.6,14.9344 1.3344,14.9328032 L14.6656,14.9328032 C15.4008,14.9344 15.9976,14.34 16,13.6048 L16,4.6392 L8.3576,9.496 C8.25065077,9.56382464 8.12664244,9.5998897 8,9.6 M14.6656,1.59999975 L1.3344,1.59999975 C0.6,1.59999975 0.0024,2.1936 0,2.9296 L0,3.0312 L8,8.1432 L16,3.0592 L16,2.9296 C15.9977947,2.1943233 15.4008799,1.59955561 14.6656,1.59999975" id="形状"></path>
+            </g>
+        </g>
+    </g>
+</svg>

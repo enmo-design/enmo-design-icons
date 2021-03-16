@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-serious-fill</title>
+    <g id="恩墨图标库" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="zCloud-icon更新对照表" transform="translate(-1878.000000, -505.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="icon-serious-fill" transform="translate(1878.000000, 505.000000)">
+                <rect opacity="0" x="0" y="0" width="16" height="16"></rect>
+                <path d="M8,0 C3.6,0 0,3.6 0,8 C0,12.4 3.6,16 8,16 C12.4,16 16,12.4 16,8 C16,3.6 12.4,0 8,0 Z M8,10 C7.68,10 7.36,9.76 7.36,9.36 L7.36,3.6 C7.36,3.28 7.6,2.96 8,2.96 C8.4,2.96 8.64,3.2 8.64,3.6 L8.64,9.36 C8.64,9.76 8.32,10 8,10 Z M7.28,11.68 C7.28,11.28 7.6,10.96 8,10.96 C8.4,10.96 8.72,11.28 8.72,11.68 C8.72,12.08 8.4,12.4 8,12.4 C7.6,12.4 7.28,12.08 7.28,11.68 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>

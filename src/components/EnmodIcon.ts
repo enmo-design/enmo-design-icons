@@ -1,104 +1,84 @@
+import {
+  generate,
+  isIconDefinition,
+  warning,
+  useInsertStyles,
+  svgBaseProps
+} from '../utils';
+import { IconDefinition, AbstractNode } from '../types';
 import Vue, { PropType } from 'vue';
-import { clone } from 'ramda';
-import { AbstractNode, IconDefinition } from '../types';
-
-function attributeHandler(attrs: any, original: boolean) {
-  const fill = attrs.fill;
-  const stroke = attrs.stroke;
-  delete attrs.fill;
-  delete attrs.stroke;
-
-  if (original) {
-    if (fill) {
-      attrs = { ...attrs, fill };
-    }
-    if (stroke) {
-      attrs = { ...attrs, stroke };
-    }
-  } else {
-    attrs = { ...attrs, fill: 'currentColor', stroke: 'currentColor' };
-  }
-
-  return attrs;
-}
-
-function generateElement(
-  createElement: Function,
-  node: AbstractNode,
-  key: string,
-  original: boolean,
-  rootProps?: { [key: string]: any } | false
-): any {
-  const attrs = attributeHandler(clone(node.attrs), original);
-  if (!rootProps) {
-    return createElement(node.tag, { key, attrs: { ...attrs } }, [
-      (node.children || []).map((child, index) =>
-        generateElement(
-          createElement,
-          child,
-          `${key}-${node.tag}-${index}`,
-          original
-        )
-      )
-    ]);
-  }
-
-  return createElement(
-    node.tag,
-    {
-      key,
-      attrs: { ...attrs, ...rootProps }
-    },
-    (node.children || []).map((child, index) =>
-      generateElement(
-        createElement,
-        child,
-        `${key}-${node.tag}-${index}`,
-        original
-      )
-    )
-  );
-}
 
 const EnmodIcon = Vue.extend({
   props: {
     icon: { type: Object as PropType<IconDefinition> },
-    width: {
-      type: String,
-      default: ''
-    },
-    height: {
-      type: String,
-      default: ''
-    },
-    spin: Boolean,
-    original: {
+    component: Object,
+    spin: {
       type: Boolean,
       default: function() {
         return false;
       }
-    }
+    },
+    rotate: Number
   },
   render(h) {
-    const digitReg = /^\d+$/;
-    const width = digitReg.test(this.width)
-      ? this.width + 'px'
-      : this.width || '1em';
-    const height = digitReg.test(this.height)
-      ? this.height + 'px'
-      : this.height || '1em';
+    useInsertStyles();
 
-    const rootProps = {
-      width,
-      height
+    let svgComponent;
+
+    const spin = this.spin;
+    const rotate = this.rotate;
+
+    const svgClassString =
+      !!spin || (this.icon && this.icon.name === 'loading')
+        ? 'enmoicon-spin'
+        : '';
+
+    const svgStyle = rotate
+      ? {
+          msTransform: `rotate(${rotate}deg)`,
+          transform: `rotate(${rotate}deg)`
+        }
+      : undefined;
+
+    const svgAttributes = {
+      ...svgBaseProps,
+      ...this.$attrs,
+      class: svgClassString
     };
 
-    return generateElement(
-      h,
-      this.icon.icon as AbstractNode,
-      `svg-${this.icon.name}`,
-      this.original,
-      rootProps
+    if (this.icon) {
+      if (!isIconDefinition(this.icon)) {
+        warning(true, `icon should be icon definition, but got ${this.icon}`);
+      } else {
+        svgComponent = generate(
+          h,
+          this.icon.icon as AbstractNode,
+          `svg-${this.icon.name}`,
+          svgAttributes,
+          svgStyle
+        );
+      }
+    } else if (this.component) {
+      svgComponent = h(this.component, {
+        style: svgStyle,
+        attrs: svgAttributes
+      });
+    }
+
+    return h(
+      'span',
+      {
+        class: {
+          enmoicon: true
+        },
+        attrs: {
+          role: 'img'
+        },
+        on: {
+          ...this.$listeners
+        }
+      },
+      [svgComponent]
     );
   }
 });
