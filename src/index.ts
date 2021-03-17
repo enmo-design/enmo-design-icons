@@ -1,5 +1,5 @@
 // This index.ts file is generated automatically.
-export { default as Icon } from './components/EnmodIcon';
+export { default } from './components/EnmodIcon';
 export { default as IconAddOutlined } from './svg-components/IconAddOutlined';
 export { default as IconAlarmHomeFilled } from './svg-components/IconAlarmHomeFilled';
 export { default as IconAlarmOutlined } from './svg-components/IconAlarmOutlined';

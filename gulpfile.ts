@@ -1,15 +1,15 @@
-import { series, parallel } from 'gulp';
-import { clean, generateIcons, generateEntry } from './tasks';
-import { generalConfig } from './plugins/svgo/presets';
-import { assignAttrsAtTag } from './plugins/svg2Definition/transforms';
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
-import { getIdentifier } from './utils';
+import { series, parallel } from 'gulp'
+import { clean, generateIcons, generateEntry } from './tasks'
+import { generalConfig } from './plugins/svgo/presets'
+import { assignAttrsAtTag } from './plugins/svg2Definition/transforms'
+import { readFileSync } from 'fs'
+import { resolve } from 'path'
+import { getIdentifier } from './utils'
 
 const iconTemplate = readFileSync(
   resolve(__dirname, './templates/icon.ts.ejs'),
   'utf8'
-);
+)
 
 export default series(
   // 1. clean
@@ -58,12 +58,12 @@ export default series(
       entryName: 'index.ts',
       from: ['src/svg-components/*.ts'],
       toDir: 'src',
-      banner: `// This index.ts file is generated automatically.\nexport { default as Icon } from './components/EnmodIcon';\n`,
-      template: `export { default as <%= identifier %> } from '<%= path %>';`,
+      banner: '// This index.ts file is generated automatically.\nexport { default } from \'./components/EnmodIcon\';\n',
+      template: 'export { default as <%= identifier %> } from \'<%= path %>\';',
       mapToInterpolate: ({ name: identifier }) => ({
         identifier,
         path: `./svg-components/${identifier}`
       })
     })
   )
-);
+)
