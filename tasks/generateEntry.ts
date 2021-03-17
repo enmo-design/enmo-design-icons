@@ -1,8 +1,8 @@
-import { src, dest } from 'gulp';
-import { useTemplate } from '../plugins';
-import concat from 'gulp-concat';
-import header from 'gulp-header';
-import { UseTemplatePluginOptions } from '../plugins/useTemplate';
+import { src, dest } from 'gulp'
+import { useTemplate } from '../plugins'
+import concat from 'gulp-concat'
+import header from 'gulp-header'
+import { UseTemplatePluginOptions } from '../plugins/useTemplate'
 
 export interface GenerateEntryOptions extends UseTemplatePluginOptions {
   from: string[];
@@ -19,7 +19,7 @@ export const generateEntry = ({
   entryName,
   banner = ''
 }: GenerateEntryOptions) =>
-  function GenerateEntry() {
+  function GenerateEntry () {
     return src(from)
       .pipe(
         useTemplate({
@@ -29,5 +29,5 @@ export const generateEntry = ({
       )
       .pipe(concat(entryName))
       .pipe(header(banner))
-      .pipe(dest(toDir));
-  };
+      .pipe(dest(toDir))
+  }

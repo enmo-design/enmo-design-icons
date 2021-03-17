@@ -1,33 +1,33 @@
-import Vue from 'vue';
-import { AbstractNode, IconDefinition } from './types';
-import insertCss from './insert-css';
+import Vue from 'vue'
+import { AbstractNode, IconDefinition } from './types'
+import insertCss from './insert-css'
 
-export function warn(valid: boolean, message: string): void {
+export function warn (valid: boolean, message: string): void {
   // Support uglify
   if (
     process.env.NODE_ENV !== 'production' &&
     !valid &&
     console !== undefined
   ) {
-    console.error(`Warning: ${message}`);
+    console.error(`Warning: ${message}`)
   }
 }
 
-export function warning(valid: boolean, message: string): void {
-  warn(valid, `[@enmo-design/icons-vue] ${message}`);
+export function warning (valid: boolean, message: string): void {
+  warn(valid, `[@enmo-design/icons-vue] ${message}`)
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export function isIconDefinition(target: any): target is IconDefinition {
+export function isIconDefinition (target: any): target is IconDefinition {
   return (
     typeof target === 'object' &&
     typeof target.name === 'string' &&
     typeof target.theme === 'string' &&
     (typeof target.icon === 'object' || typeof target.icon === 'function')
-  );
+  )
 }
 
-export function generate(
+export function generate (
   createElement: Function,
   node: AbstractNode,
   key: string,
@@ -41,7 +41,7 @@ export function generate(
       (node.children || []).map((child, index) =>
         generate(createElement, child, `${key}-${node.tag}-${index}`)
       )
-    );
+    )
   }
 
   return createElement(
@@ -57,7 +57,7 @@ export function generate(
     (node.children || []).map((child, index) =>
       generate(createElement, child, `${key}-${node.tag}-${index}`)
     )
-  );
+  )
 }
 
 // These props make sure that the SVG behaviours like general text.
@@ -68,7 +68,7 @@ export const svgBaseProps = {
   fill: 'currentColor',
   'aria-hidden': 'true',
   focusable: 'false'
-} as any;
+} as any
 
 export const iconStyles = `
 .enmoicon {
@@ -124,9 +124,9 @@ export const iconStyles = `
     transform: rotate(360deg);
   }
 }
-`;
+`
 
-let cssInjectedFlag = false;
+let cssInjectedFlag = false
 
 export const useInsertStyles = (styleStr: string = iconStyles): void => {
   Vue.nextTick(() => {
@@ -138,9 +138,9 @@ export const useInsertStyles = (styleStr: string = iconStyles): void => {
       ) {
         insertCss(styleStr, {
           prepend: true
-        });
+        })
       }
-      cssInjectedFlag = true;
+      cssInjectedFlag = true
     }
-  });
-};
+  })
+}
