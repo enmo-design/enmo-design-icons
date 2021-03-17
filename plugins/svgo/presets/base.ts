@@ -4,7 +4,7 @@
  * See https://github.com/mui-org/material-ui/blob/bb3a8aafd9a9c590f26db9b6002c9154b1f4e30b/packages/material-ui-icons/builder.js#L17-L61
  */
 
-import SVGO from 'svgo';
+import SVGO from 'svgo'
 
 export const base: SVGO.Options = {
   floatPrecision: 2,
@@ -44,4 +44,4 @@ export const base: SVGO.Options = {
     { sortAttrs: true },
     { removeDimensions: true }
   ]
-};
+}

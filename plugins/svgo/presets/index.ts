@@ -1,1 +1,1 @@
-export { generalConfig } from './general';
+export { generalConfig } from './general'

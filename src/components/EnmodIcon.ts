@@ -43,6 +43,7 @@ const EnmodIcon = Vue.extend({
     const svgAttributes = {
       ...svgBaseProps,
       ...this.$attrs,
+      fill: 'currentColor',
       class: svgClassString
     }
 
