@@ -13,14 +13,14 @@ const iconTemplate = readFileSync(
 
 export default series(
   // 1. clean
-  clean(['src/svg-components', 'es', 'lib']),
+  clean(['src/icons', 'es', 'lib']),
 
   parallel(
     // 2.1 generate abstract node with the theme "filled"
     generateIcons({
       theme: 'filled',
       from: ['svg/filled/*.svg'],
-      toDir: 'src/svg-components',
+      toDir: 'src/icons',
       svgoConfig: generalConfig,
       extraNodeTransformFactories: [
         assignAttrsAtTag('svg', { focusable: 'false' })
@@ -38,7 +38,7 @@ export default series(
     generateIcons({
       theme: 'outlined',
       from: ['svg/outlined/*.svg'],
-      toDir: 'src/svg-components',
+      toDir: 'src/icons',
       svgoConfig: generalConfig,
       extraNodeTransformFactories: [
         assignAttrsAtTag('svg', { focusable: 'false' })
@@ -56,13 +56,13 @@ export default series(
     // 3.1 generate entry file: src/index.ts
     generateEntry({
       entryName: 'index.ts',
-      from: ['src/svg-components/*.ts'],
+      from: ['src/icons/*.ts'],
       toDir: 'src',
-      banner: '// This index.ts file is generated automatically.\nexport { default } from \'./components/EnmodIcon\';\n',
+      banner: '// This index.ts file is generated automatically.\n',
       template: 'export { default as <%= identifier %> } from \'<%= path %>\';',
       mapToInterpolate: ({ name: identifier }) => ({
         identifier,
-        path: `./svg-components/${identifier}`
+        path: `./icons/${identifier}`
       })
     })
   )
